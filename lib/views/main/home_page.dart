@@ -52,7 +52,11 @@ class _HomePageState extends State<HomePage> {
         });
     Future.delayed(const Duration(seconds: 1)).then(
       (value) => setState(() {
-        isProfileLoaded = true;
+        if (usernameController.text.isNotEmpty) {
+          isProfileLoaded = true;
+        } else {
+          _getUserInfo();
+        }
       }),
     );
   }
