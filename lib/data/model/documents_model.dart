@@ -1,6 +1,7 @@
-import 'package:arsip/generated/json/base/json_field.dart';
-import 'package:arsip/generated/json/documents_model_entity.g.dart';
 import 'dart:convert';
+
+import 'package:arsip/generated/json/base/json_field.dart';
+import 'package:arsip/generated/json/documents_model.g.dart';
 
 @JsonSerializable()
 class DocumentsModel {
@@ -9,9 +10,9 @@ class DocumentsModel {
 
   DocumentsModel();
 
-  factory DocumentsModel.fromJson(Map<String, dynamic> json) => $DocumentsModelEntityFromJson(json);
+  factory DocumentsModel.fromJson(Map<String, dynamic> json) => $DocumentsModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelEntityToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsModelToJson(this);
 
   @override
   String toString() {
@@ -27,9 +28,9 @@ class DocumentsDataModel {
   
   DocumentsDataModel();
 
-  factory DocumentsDataModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataFromJson(json);
+  factory DocumentsDataModel.fromJson(Map<String, dynamic> json) => $DocumentsDataModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataModelToJson(this);
 
   @override
   String toString() {
@@ -51,9 +52,9 @@ class DocumentsDataAttributesModel {
   
   DocumentsDataAttributesModel();
 
-  factory DocumentsDataAttributesModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesFromJson(json);
+  factory DocumentsDataAttributesModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesModelToJson(this);
 
   @override
   String toString() {
@@ -68,9 +69,9 @@ class DocumentsDataAttributesAttachmentModel {
   
   DocumentsDataAttributesAttachmentModel();
 
-  factory DocumentsDataAttributesAttachmentModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesAttachmentFromJson(json);
+  factory DocumentsDataAttributesAttachmentModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesAttachmentModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesAttachmentToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesAttachmentModelToJson(this);
 
   @override
   String toString() {
@@ -86,9 +87,9 @@ class DocumentsDataAttributesAttachmentDataModel {
   
   DocumentsDataAttributesAttachmentDataModel();
 
-  factory DocumentsDataAttributesAttachmentDataModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesAttachmentDataFromJson(json);
+  factory DocumentsDataAttributesAttachmentDataModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesAttachmentDataModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesAttachmentDataToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesAttachmentDataModelToJson(this);
 
   @override
   String toString() {
@@ -119,9 +120,9 @@ class DocumentsDataAttributesAttachmentDataAttributesModel {
   
   DocumentsDataAttributesAttachmentDataAttributesModel();
 
-  factory DocumentsDataAttributesAttachmentDataAttributesModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesAttachmentDataAttributesFromJson(json);
+  factory DocumentsDataAttributesAttachmentDataAttributesModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesAttachmentDataAttributesModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesAttachmentDataAttributesToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesAttachmentDataAttributesModelToJson(this);
 
   @override
   String toString() {
@@ -136,9 +137,9 @@ class DocumentsDataAttributesAttachmentDataAttributesFormatsModel {
   
   DocumentsDataAttributesAttachmentDataAttributesFormatsModel();
 
-  factory DocumentsDataAttributesAttachmentDataAttributesFormatsModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesAttachmentDataAttributesFormatsFromJson(json);
+  factory DocumentsDataAttributesAttachmentDataAttributesFormatsModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesAttachmentDataAttributesFormatsModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesAttachmentDataAttributesFormatsToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesAttachmentDataAttributesFormatsModelToJson(this);
 
   @override
   String toString() {
@@ -178,9 +179,9 @@ class DocumentsDataAttributesDocumentTypeModel {
   
   DocumentsDataAttributesDocumentTypeModel();
 
-  factory DocumentsDataAttributesDocumentTypeModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesDocumentTypeFromJson(json);
+  factory DocumentsDataAttributesDocumentTypeModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesDocumentTypeModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesDocumentTypeToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesDocumentTypeModelToJson(this);
 
   @override
   String toString() {
@@ -196,9 +197,9 @@ class DocumentsDataAttributesDocumentTypeDataModel {
   
   DocumentsDataAttributesDocumentTypeDataModel();
 
-  factory DocumentsDataAttributesDocumentTypeDataModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesDocumentTypeDataFromJson(json);
+  factory DocumentsDataAttributesDocumentTypeDataModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesDocumentTypeDataModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesDocumentTypeDataToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesDocumentTypeDataModelToJson(this);
 
   @override
   String toString() {
@@ -215,9 +216,9 @@ class DocumentsDataAttributesDocumentTypeDataAttributesModel {
   
   DocumentsDataAttributesDocumentTypeDataAttributesModel();
 
-  factory DocumentsDataAttributesDocumentTypeDataAttributesModel.fromJson(Map<String, dynamic> json) => $DocumentsModelDataAttributesDocumentTypeDataAttributesFromJson(json);
+  factory DocumentsDataAttributesDocumentTypeDataAttributesModel.fromJson(Map<String, dynamic> json) => $DocumentsDataAttributesDocumentTypeDataAttributesModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $DocumentsModelDataAttributesDocumentTypeDataAttributesToJson(this);
+  Map<String, dynamic> toJson() => $DocumentsDataAttributesDocumentTypeDataAttributesModelToJson(this);
 
   @override
   String toString() {

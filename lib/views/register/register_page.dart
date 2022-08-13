@@ -1,4 +1,5 @@
 import 'package:arsip/data/api/api_service.dart';
+import 'package:arsip/data/model/user_model.dart';
 import 'package:arsip/views/login/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -18,35 +19,33 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void register(String username, String email, String password) async {
     var response = (await ApiService().register(username, email, password));
-    if (response?.username != null) {
-      if (response?.username != null) {
-        Future.delayed(const Duration(seconds: 1)).then(
-              (value) => setState(
-                () {
-              Navigator.pushReplacement(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const LoginPage(),
+    if (response.runtimeType == UserModel) {
+      Future.delayed(const Duration(seconds: 1)).then(
+        (value) => setState(
+          () {
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginPage(),
+              ),
+            );
+          },
+        ),
+      );
+    } else {
+      Future.delayed(const Duration(seconds: 1)).then(
+        (value) => setState(
+          () {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(
+                  "${response.message}",
                 ),
-              );
-            },
-          ),
-        );
-      } else {
-        Future.delayed(const Duration(seconds: 1)).then(
-              (value) => setState(
-                () {
-              ScaffoldMessenger.of(context).showSnackBar(
-                const SnackBar(
-                  content: Text(
-                    "Register Failed",
-                  ),
-                ),
-              );
-            },
-          ),
-        );
-      }
+              ),
+            );
+          },
+        ),
+      );
     }
   }
 
@@ -185,7 +184,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      register(usernameController.text, emailController.text, passwordController.text);
+                      register(usernameController.text, emailController.text,
+                          passwordController.text);
                       FocusManager.instance.primaryFocus?.unfocus();
                     },
                     style: ButtonStyle(

@@ -1,6 +1,6 @@
-import 'package:arsip/generated/json/base/json_convert_content.dart';
 import 'package:arsip/data/model/login_model.dart';
 import 'package:arsip/data/model/user_model.dart';
+import 'package:arsip/generated/json/base/json_convert_content.dart';
 
 
 LoginModel $LoginModelFromJson(Map<String, dynamic> json) {

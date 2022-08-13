@@ -1,71 +1,71 @@
-import 'package:arsip/generated/json/base/json_convert_content.dart';
 import 'package:arsip/data/model/documents_model.dart';
+import 'package:arsip/generated/json/base/json_convert_content.dart';
 
-DocumentsModel $DocumentsModelEntityFromJson(Map<String, dynamic> json) {
-	final DocumentsModel documentsModelEntity = DocumentsModel();
+DocumentsModel $DocumentsModelFromJson(Map<String, dynamic> json) {
+	final DocumentsModel documentsModel = DocumentsModel();
 	final List<DocumentsDataModel>? data = jsonConvert.convertListNotNull<DocumentsDataModel>(json['data']);
 	if (data != null) {
-		documentsModelEntity.data = data;
+		documentsModel.data = data;
 	}
-	return documentsModelEntity;
+	return documentsModel;
 }
 
-Map<String, dynamic> $DocumentsModelEntityToJson(DocumentsModel entity) {
+Map<String, dynamic> $DocumentsModelToJson(DocumentsModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['data'] =  entity.data?.map((v) => v.toJson()).toList();
 	return data;
 }
 
-DocumentsDataModel $DocumentsModelDataFromJson(Map<String, dynamic> json) {
-	final DocumentsDataModel documentsModelData = DocumentsDataModel();
+DocumentsDataModel $DocumentsDataModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataModel documentsDataModel = DocumentsDataModel();
 	final int? id = jsonConvert.convert<int>(json['id']);
 	if (id != null) {
-		documentsModelData.id = id;
+		documentsDataModel.id = id;
 	}
 	final DocumentsDataAttributesModel? attributes = jsonConvert.convert<DocumentsDataAttributesModel>(json['attributes']);
 	if (attributes != null) {
-		documentsModelData.attributes = attributes;
+		documentsDataModel.attributes = attributes;
 	}
-	return documentsModelData;
+	return documentsDataModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataToJson(DocumentsDataModel entity) {
+Map<String, dynamic> $DocumentsDataModelToJson(DocumentsDataModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['id'] = entity.id;
 	data['attributes'] = entity.attributes?.toJson();
 	return data;
 }
 
-DocumentsDataAttributesModel $DocumentsModelDataAttributesFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesModel documentsModelDataAttributes = DocumentsDataAttributesModel();
+DocumentsDataAttributesModel $DocumentsDataAttributesModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesModel documentsDataAttributesModel = DocumentsDataAttributesModel();
 	final String? documentName = jsonConvert.convert<String>(json['document_name']);
 	if (documentName != null) {
-		documentsModelDataAttributes.documentName = documentName;
+		documentsDataAttributesModel.documentName = documentName;
 	}
 	final String? createdAt = jsonConvert.convert<String>(json['createdAt']);
 	if (createdAt != null) {
-		documentsModelDataAttributes.createdAt = createdAt;
+		documentsDataAttributesModel.createdAt = createdAt;
 	}
 	final String? updatedAt = jsonConvert.convert<String>(json['updatedAt']);
 	if (updatedAt != null) {
-		documentsModelDataAttributes.updatedAt = updatedAt;
+		documentsDataAttributesModel.updatedAt = updatedAt;
 	}
 	final dynamic? detail = jsonConvert.convert<dynamic>(json['detail']);
 	if (detail != null) {
-		documentsModelDataAttributes.detail = detail;
+		documentsDataAttributesModel.detail = detail;
 	}
 	final DocumentsDataAttributesAttachmentModel? attachment = jsonConvert.convert<DocumentsDataAttributesAttachmentModel>(json['attachment']);
 	if (attachment != null) {
-		documentsModelDataAttributes.attachment = attachment;
+		documentsDataAttributesModel.attachment = attachment;
 	}
 	final DocumentsDataAttributesDocumentTypeModel? documentType = jsonConvert.convert<DocumentsDataAttributesDocumentTypeModel>(json['document_type']);
 	if (documentType != null) {
-		documentsModelDataAttributes.documentType = documentType;
+		documentsDataAttributesModel.documentType = documentType;
 	}
-	return documentsModelDataAttributes;
+	return documentsDataAttributesModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesToJson(DocumentsDataAttributesModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesModelToJson(DocumentsDataAttributesModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['document_name'] = entity.documentName;
 	data['createdAt'] = entity.createdAt;
@@ -76,111 +76,111 @@ Map<String, dynamic> $DocumentsModelDataAttributesToJson(DocumentsDataAttributes
 	return data;
 }
 
-DocumentsDataAttributesAttachmentModel $DocumentsModelDataAttributesAttachmentFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesAttachmentModel documentsModelDataAttributesAttachment = DocumentsDataAttributesAttachmentModel();
+DocumentsDataAttributesAttachmentModel $DocumentsDataAttributesAttachmentModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesAttachmentModel documentsDataAttributesAttachmentModel = DocumentsDataAttributesAttachmentModel();
 	final List<DocumentsDataAttributesAttachmentDataModel>? data = jsonConvert.convertListNotNull<DocumentsDataAttributesAttachmentDataModel>(json['data']);
 	if (data != null) {
-		documentsModelDataAttributesAttachment.data = data;
+		documentsDataAttributesAttachmentModel.data = data;
 	}
-	return documentsModelDataAttributesAttachment;
+	return documentsDataAttributesAttachmentModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesAttachmentToJson(DocumentsDataAttributesAttachmentModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesAttachmentModelToJson(DocumentsDataAttributesAttachmentModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['data'] =  entity.data?.map((v) => v.toJson()).toList();
 	return data;
 }
 
-DocumentsDataAttributesAttachmentDataModel $DocumentsModelDataAttributesAttachmentDataFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesAttachmentDataModel documentsModelDataAttributesAttachmentData = DocumentsDataAttributesAttachmentDataModel();
+DocumentsDataAttributesAttachmentDataModel $DocumentsDataAttributesAttachmentDataModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesAttachmentDataModel documentsDataAttributesAttachmentDataModel = DocumentsDataAttributesAttachmentDataModel();
 	final int? id = jsonConvert.convert<int>(json['id']);
 	if (id != null) {
-		documentsModelDataAttributesAttachmentData.id = id;
+		documentsDataAttributesAttachmentDataModel.id = id;
 	}
 	final DocumentsDataAttributesAttachmentDataAttributesModel? attributes = jsonConvert.convert<DocumentsDataAttributesAttachmentDataAttributesModel>(json['attributes']);
 	if (attributes != null) {
-		documentsModelDataAttributesAttachmentData.attributes = attributes;
+		documentsDataAttributesAttachmentDataModel.attributes = attributes;
 	}
-	return documentsModelDataAttributesAttachmentData;
+	return documentsDataAttributesAttachmentDataModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesAttachmentDataToJson(DocumentsDataAttributesAttachmentDataModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesAttachmentDataModelToJson(DocumentsDataAttributesAttachmentDataModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['id'] = entity.id;
 	data['attributes'] = entity.attributes?.toJson();
 	return data;
 }
 
-DocumentsDataAttributesAttachmentDataAttributesModel $DocumentsModelDataAttributesAttachmentDataAttributesFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesAttachmentDataAttributesModel documentsModelDataAttributesAttachmentDataAttributes = DocumentsDataAttributesAttachmentDataAttributesModel();
+DocumentsDataAttributesAttachmentDataAttributesModel $DocumentsDataAttributesAttachmentDataAttributesModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesAttachmentDataAttributesModel documentsDataAttributesAttachmentDataAttributesModel = DocumentsDataAttributesAttachmentDataAttributesModel();
 	final String? name = jsonConvert.convert<String>(json['name']);
 	if (name != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.name = name;
+		documentsDataAttributesAttachmentDataAttributesModel.name = name;
 	}
 	final String? alternativeText = jsonConvert.convert<String>(json['alternativeText']);
 	if (alternativeText != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.alternativeText = alternativeText;
+		documentsDataAttributesAttachmentDataAttributesModel.alternativeText = alternativeText;
 	}
 	final String? caption = jsonConvert.convert<String>(json['caption']);
 	if (caption != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.caption = caption;
+		documentsDataAttributesAttachmentDataAttributesModel.caption = caption;
 	}
 	final int? width = jsonConvert.convert<int>(json['width']);
 	if (width != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.width = width;
+		documentsDataAttributesAttachmentDataAttributesModel.width = width;
 	}
 	final int? height = jsonConvert.convert<int>(json['height']);
 	if (height != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.height = height;
+		documentsDataAttributesAttachmentDataAttributesModel.height = height;
 	}
 	final DocumentsDataAttributesAttachmentDataAttributesFormatsModel? formats = jsonConvert.convert<DocumentsDataAttributesAttachmentDataAttributesFormatsModel>(json['formats']);
 	if (formats != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.formats = formats;
+		documentsDataAttributesAttachmentDataAttributesModel.formats = formats;
 	}
 	final String? hash = jsonConvert.convert<String>(json['hash']);
 	if (hash != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.hash = hash;
+		documentsDataAttributesAttachmentDataAttributesModel.hash = hash;
 	}
 	final String? ext = jsonConvert.convert<String>(json['ext']);
 	if (ext != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.ext = ext;
+		documentsDataAttributesAttachmentDataAttributesModel.ext = ext;
 	}
 	final String? mime = jsonConvert.convert<String>(json['mime']);
 	if (mime != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.mime = mime;
+		documentsDataAttributesAttachmentDataAttributesModel.mime = mime;
 	}
 	final double? size = jsonConvert.convert<double>(json['size']);
 	if (size != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.size = size;
+		documentsDataAttributesAttachmentDataAttributesModel.size = size;
 	}
 	final String? url = jsonConvert.convert<String>(json['url']);
 	if (url != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.url = url;
+		documentsDataAttributesAttachmentDataAttributesModel.url = url;
 	}
 	final dynamic? previewUrl = jsonConvert.convert<dynamic>(json['previewUrl']);
 	if (previewUrl != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.previewUrl = previewUrl;
+		documentsDataAttributesAttachmentDataAttributesModel.previewUrl = previewUrl;
 	}
 	final String? provider = jsonConvert.convert<String>(json['provider']);
 	if (provider != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.provider = provider;
+		documentsDataAttributesAttachmentDataAttributesModel.provider = provider;
 	}
 	final dynamic? providerMetadata = jsonConvert.convert<dynamic>(json['provider_metadata']);
 	if (providerMetadata != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.providerMetadata = providerMetadata;
+		documentsDataAttributesAttachmentDataAttributesModel.providerMetadata = providerMetadata;
 	}
 	final String? createdAt = jsonConvert.convert<String>(json['createdAt']);
 	if (createdAt != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.createdAt = createdAt;
+		documentsDataAttributesAttachmentDataAttributesModel.createdAt = createdAt;
 	}
 	final String? updatedAt = jsonConvert.convert<String>(json['updatedAt']);
 	if (updatedAt != null) {
-		documentsModelDataAttributesAttachmentDataAttributes.updatedAt = updatedAt;
+		documentsDataAttributesAttachmentDataAttributesModel.updatedAt = updatedAt;
 	}
-	return documentsModelDataAttributesAttachmentDataAttributes;
+	return documentsDataAttributesAttachmentDataAttributesModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesAttachmentDataAttributesToJson(DocumentsDataAttributesAttachmentDataAttributesModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesAttachmentDataAttributesModelToJson(DocumentsDataAttributesAttachmentDataAttributesModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['name'] = entity.name;
 	data['alternativeText'] = entity.alternativeText;
@@ -201,16 +201,16 @@ Map<String, dynamic> $DocumentsModelDataAttributesAttachmentDataAttributesToJson
 	return data;
 }
 
-DocumentsDataAttributesAttachmentDataAttributesFormatsModel $DocumentsModelDataAttributesAttachmentDataAttributesFormatsFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesAttachmentDataAttributesFormatsModel documentsModelDataAttributesAttachmentDataAttributesFormats = DocumentsDataAttributesAttachmentDataAttributesFormatsModel();
+DocumentsDataAttributesAttachmentDataAttributesFormatsModel $DocumentsDataAttributesAttachmentDataAttributesFormatsModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesAttachmentDataAttributesFormatsModel documentsDataAttributesAttachmentDataAttributesFormatsModel = DocumentsDataAttributesAttachmentDataAttributesFormatsModel();
 	final DocumentsModelDataAttributesAttachmentDataAttributesFormatsThumbnail? thumbnail = jsonConvert.convert<DocumentsModelDataAttributesAttachmentDataAttributesFormatsThumbnail>(json['thumbnail']);
 	if (thumbnail != null) {
-		documentsModelDataAttributesAttachmentDataAttributesFormats.thumbnail = thumbnail;
+		documentsDataAttributesAttachmentDataAttributesFormatsModel.thumbnail = thumbnail;
 	}
-	return documentsModelDataAttributesAttachmentDataAttributesFormats;
+	return documentsDataAttributesAttachmentDataAttributesFormatsModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesAttachmentDataAttributesFormatsToJson(DocumentsDataAttributesAttachmentDataAttributesFormatsModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesAttachmentDataAttributesFormatsModelToJson(DocumentsDataAttributesAttachmentDataAttributesFormatsModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['thumbnail'] = entity.thumbnail?.toJson();
 	return data;
@@ -271,59 +271,59 @@ Map<String, dynamic> $DocumentsModelDataAttributesAttachmentDataAttributesFormat
 	return data;
 }
 
-DocumentsDataAttributesDocumentTypeModel $DocumentsModelDataAttributesDocumentTypeFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesDocumentTypeModel documentsModelDataAttributesDocumentType = DocumentsDataAttributesDocumentTypeModel();
+DocumentsDataAttributesDocumentTypeModel $DocumentsDataAttributesDocumentTypeModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesDocumentTypeModel documentsDataAttributesDocumentTypeModel = DocumentsDataAttributesDocumentTypeModel();
 	final DocumentsDataAttributesDocumentTypeDataModel? data = jsonConvert.convert<DocumentsDataAttributesDocumentTypeDataModel>(json['data']);
 	if (data != null) {
-		documentsModelDataAttributesDocumentType.data = data;
+		documentsDataAttributesDocumentTypeModel.data = data;
 	}
-	return documentsModelDataAttributesDocumentType;
+	return documentsDataAttributesDocumentTypeModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesDocumentTypeToJson(DocumentsDataAttributesDocumentTypeModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesDocumentTypeModelToJson(DocumentsDataAttributesDocumentTypeModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['data'] = entity.data?.toJson();
 	return data;
 }
 
-DocumentsDataAttributesDocumentTypeDataModel $DocumentsModelDataAttributesDocumentTypeDataFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesDocumentTypeDataModel documentsModelDataAttributesDocumentTypeData = DocumentsDataAttributesDocumentTypeDataModel();
+DocumentsDataAttributesDocumentTypeDataModel $DocumentsDataAttributesDocumentTypeDataModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesDocumentTypeDataModel documentsDataAttributesDocumentTypeDataModel = DocumentsDataAttributesDocumentTypeDataModel();
 	final int? id = jsonConvert.convert<int>(json['id']);
 	if (id != null) {
-		documentsModelDataAttributesDocumentTypeData.id = id;
+		documentsDataAttributesDocumentTypeDataModel.id = id;
 	}
 	final DocumentsDataAttributesDocumentTypeDataAttributesModel? attributes = jsonConvert.convert<DocumentsDataAttributesDocumentTypeDataAttributesModel>(json['attributes']);
 	if (attributes != null) {
-		documentsModelDataAttributesDocumentTypeData.attributes = attributes;
+		documentsDataAttributesDocumentTypeDataModel.attributes = attributes;
 	}
-	return documentsModelDataAttributesDocumentTypeData;
+	return documentsDataAttributesDocumentTypeDataModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesDocumentTypeDataToJson(DocumentsDataAttributesDocumentTypeDataModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesDocumentTypeDataModelToJson(DocumentsDataAttributesDocumentTypeDataModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['id'] = entity.id;
 	data['attributes'] = entity.attributes?.toJson();
 	return data;
 }
 
-DocumentsDataAttributesDocumentTypeDataAttributesModel $DocumentsModelDataAttributesDocumentTypeDataAttributesFromJson(Map<String, dynamic> json) {
-	final DocumentsDataAttributesDocumentTypeDataAttributesModel documentsModelDataAttributesDocumentTypeDataAttributes = DocumentsDataAttributesDocumentTypeDataAttributesModel();
+DocumentsDataAttributesDocumentTypeDataAttributesModel $DocumentsDataAttributesDocumentTypeDataAttributesModelFromJson(Map<String, dynamic> json) {
+	final DocumentsDataAttributesDocumentTypeDataAttributesModel documentsDataAttributesDocumentTypeDataAttributesModel = DocumentsDataAttributesDocumentTypeDataAttributesModel();
 	final String? type = jsonConvert.convert<String>(json['type']);
 	if (type != null) {
-		documentsModelDataAttributesDocumentTypeDataAttributes.type = type;
+		documentsDataAttributesDocumentTypeDataAttributesModel.type = type;
 	}
 	final String? createdAt = jsonConvert.convert<String>(json['createdAt']);
 	if (createdAt != null) {
-		documentsModelDataAttributesDocumentTypeDataAttributes.createdAt = createdAt;
+		documentsDataAttributesDocumentTypeDataAttributesModel.createdAt = createdAt;
 	}
 	final String? updatedAt = jsonConvert.convert<String>(json['updatedAt']);
 	if (updatedAt != null) {
-		documentsModelDataAttributesDocumentTypeDataAttributes.updatedAt = updatedAt;
+		documentsDataAttributesDocumentTypeDataAttributesModel.updatedAt = updatedAt;
 	}
-	return documentsModelDataAttributesDocumentTypeDataAttributes;
+	return documentsDataAttributesDocumentTypeDataAttributesModel;
 }
 
-Map<String, dynamic> $DocumentsModelDataAttributesDocumentTypeDataAttributesToJson(DocumentsDataAttributesDocumentTypeDataAttributesModel entity) {
+Map<String, dynamic> $DocumentsDataAttributesDocumentTypeDataAttributesModelToJson(DocumentsDataAttributesDocumentTypeDataAttributesModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['type'] = entity.type;
 	data['createdAt'] = entity.createdAt;

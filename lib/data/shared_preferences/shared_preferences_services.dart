@@ -12,6 +12,17 @@ class SharedPreferencesService {
     return value;
   }
 
+  addInteger(String key, int value) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setInt(key, value);
+  }
+
+  getInteger(String key) async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    int? value = prefs.getInt(key);
+    return value;
+  }
+
   deleteData(String key) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.remove(key);

@@ -1,17 +1,17 @@
 import 'package:arsip/data/api/api_service.dart';
-import 'package:arsip/data/shared_preferences/shared_preferences_services.dart';
-import 'package:arsip/views/login/login_page.dart';
-import 'package:arsip/views/profile/edit_profile_page.dart';
+import 'package:arsip/data/model/user_model.dart';
 import 'package:flutter/material.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({Key? key}) : super(key: key);
+class EditProfilePage extends StatefulWidget {
+  const EditProfilePage({Key? key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _ProfilePageState();
+  State<StatefulWidget> createState() => _EditProfilePageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _EditProfilePageState extends State<EditProfilePage> {
+  int? id;
+  bool obscured = true;
   bool isLoading = true;
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
@@ -27,9 +27,38 @@ class _ProfilePageState extends State<ProfilePage> {
     await ApiService().getUserInfo().then((value) => {
           usernameController.text = '${value?.username}',
           emailController.text = '${value?.email}',
+          id = value?.id,
         });
+    Future.delayed(const Duration(seconds: 1)).then((value) => setState(() {
+          isLoading = false;
+        }));
+  }
+
+  Future<void> _updateUserInfo() async {
+    isLoading = true;
+    String message = "Update Success";
+    await ApiService()
+        .updateUserInfo(id!, usernameController.text, emailController.text,
+            passwordController.text)
+        .then(
+          (value) => {
+            if (value.runtimeType == UserModel) {
+              usernameController.text = '${value?.username}',
+              emailController.text = '${value?.email}',
+            } else {
+              message = value.message,
+            }
+          },
+        );
     Future.delayed(const Duration(seconds: 1)).then(
       (value) => setState(() {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              message,
+            ),
+          ),
+        );
         isLoading = false;
       }),
     );
@@ -37,13 +66,16 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
-    if (!isLoading) {
       return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.amber.shade900,
           title: Text(usernameController.text),
         ),
-        body: SingleChildScrollView(
+        body: isLoading ? Center(
+          child: CircularProgressIndicator(
+            color: Colors.amber.shade900,
+          ),
+        ) : SingleChildScrollView(
           child: Container(
             padding: const EdgeInsets.symmetric(
               horizontal: 20,
@@ -75,36 +107,6 @@ class _ProfilePageState extends State<ProfilePage> {
                     style: const TextStyle(fontSize: 20),
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const EditProfilePage(),
-                      ),
-                    );
-                  },
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(18),
-                      ),
-                    ),
-                    backgroundColor: MaterialStateProperty.all(
-                      Colors.amber.shade900,
-                    ),
-                  ),
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    child: const Text(
-                      'Edit Profiles',
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                  ),
-                ),
                 Container(
                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                   child: TextField(
@@ -112,17 +114,12 @@ class _ProfilePageState extends State<ProfilePage> {
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(
                       label: const Text('Username'),
-                      border: const OutlineInputBorder(),
-                      filled: true,
-                      enabled: false,
-                      labelStyle: TextStyle(
-                        color: Colors.amber.shade900,
-                      ),
-                      disabledBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.amber.shade900,
                         ),
                       ),
+                      filled: true,
                       contentPadding: const EdgeInsets.all(16),
                       fillColor: Colors.white,
                     ),
@@ -132,20 +129,15 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                   child: TextField(
                     controller: emailController,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
                       label: const Text('Email'),
-                      border: const OutlineInputBorder(),
-                      filled: true,
-                      enabled: false,
-                      labelStyle: TextStyle(
-                        color: Colors.amber.shade900,
-                      ),
-                      disabledBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.amber.shade900,
                         ),
                       ),
+                      filled: true,
                       contentPadding: const EdgeInsets.all(16),
                       fillColor: Colors.white,
                     ),
@@ -155,35 +147,35 @@ class _ProfilePageState extends State<ProfilePage> {
                   padding: const EdgeInsets.fromLTRB(40, 10, 40, 10),
                   child: TextField(
                     controller: passwordController,
-                    keyboardType: TextInputType.text,
+                    keyboardType: TextInputType.visiblePassword,
+                    obscureText: obscured,
                     decoration: InputDecoration(
                       label: const Text('Password'),
-                      border: const OutlineInputBorder(),
-                      filled: true,
-                      enabled: false,
-                      labelStyle: TextStyle(
-                        color: Colors.amber.shade900,
+                      suffixIcon: IconButton(
+                        icon: Icon(
+                          obscured ? Icons.visibility : Icons.visibility_off,
+                          color: Colors.grey,
+                        ),
+                        onPressed: () {
+                          setState(() {
+                            obscured = !obscured;
+                          });
+                        },
                       ),
-                      disabledBorder: OutlineInputBorder(
+                      border: OutlineInputBorder(
                         borderSide: BorderSide(
                           color: Colors.amber.shade900,
                         ),
                       ),
+                      filled: true,
                       contentPadding: const EdgeInsets.all(16),
                       fillColor: Colors.white,
                     ),
                   ),
                 ),
-                const SizedBox(
-                  height: 120,
-                ),
                 ElevatedButton(
                   onPressed: () {
-                    SharedPreferencesService().deleteData('jwt');
-                    Navigator.of(context).pushAndRemoveUntil(
-                        MaterialPageRoute(
-                            builder: (context) => const LoginPage()),
-                        (Route<dynamic> route) => false);
+                    _updateUserInfo();
                   },
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
@@ -198,7 +190,7 @@ class _ProfilePageState extends State<ProfilePage> {
                   child: SizedBox(
                     width: MediaQuery.of(context).size.width * 0.6,
                     child: const Text(
-                      'Logout',
+                      'Save',
                       style: TextStyle(
                         fontSize: 18,
                       ),
@@ -211,18 +203,5 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ),
       );
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.amber.shade900,
-          title: Text(usernameController.text),
-        ),
-        body: Center(
-          child: CircularProgressIndicator(
-            color: Colors.amber.shade900,
-          ),
-        ),
-      );
-    }
   }
 }

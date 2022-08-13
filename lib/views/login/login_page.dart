@@ -1,4 +1,5 @@
 import 'package:arsip/data/api/api_service.dart';
+import 'package:arsip/data/model/user_model.dart';
 import 'package:arsip/views/main/home_page.dart';
 import 'package:arsip/views/register/register_page.dart';
 import 'package:flutter/material.dart';
@@ -39,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void login(String identifier, String password) async {
     var response = (await ApiService().login(identifier, password));
-    if (response?.username != null) {
+    if (response.runtimeType == UserModel) {
       Future.delayed(const Duration(seconds: 1)).then(
         (value) => setState(
           () {
@@ -57,9 +58,9 @@ class _LoginPageState extends State<LoginPage> {
         (value) => setState(
           () {
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
+              SnackBar(
                 content: Text(
-                  "Login Failed",
+                  "${response.message}",
                 ),
               ),
             );
@@ -177,7 +178,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushReplacement(
+                          Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => const RegisterPage()),

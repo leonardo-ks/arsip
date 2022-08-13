@@ -1,7 +1,7 @@
-import 'package:arsip/data/model/user_model.dart';
-import 'package:arsip/generated/json/base/json_field.dart';
 import 'dart:convert';
 
+import 'package:arsip/data/model/user_model.dart';
+import 'package:arsip/generated/json/base/json_field.dart';
 import 'package:arsip/generated/json/login_model.g.dart';
 
 @JsonSerializable()

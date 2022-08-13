@@ -1,5 +1,5 @@
-import 'package:arsip/generated/json/base/json_convert_content.dart';
 import 'package:arsip/data/model/user_model.dart';
+import 'package:arsip/generated/json/base/json_convert_content.dart';
 
 UserModel $UserModelFromJson(Map<String, dynamic> json) {
 	final UserModel userModel = UserModel();

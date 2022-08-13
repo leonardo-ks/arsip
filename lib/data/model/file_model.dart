@@ -6,6 +6,6 @@ class FileModel {
   FileModel(
       this.id,
       this.name,
-      this.type
+      this.type,
       );
 }
