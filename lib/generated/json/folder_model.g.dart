@@ -1,5 +1,5 @@
-import 'package:arsip/data/model/folder_model.dart';
 import 'package:arsip/generated/json/base/json_convert_content.dart';
+import 'package:arsip/data/model/folder_model.dart';
 
 FolderModel $FolderModelFromJson(Map<String, dynamic> json) {
 	final FolderModel folderModel = FolderModel();

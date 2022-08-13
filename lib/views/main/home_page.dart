@@ -20,6 +20,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  int? userId;
   List<FileModel> documents = [];
   bool isDocumentsLoaded = false;
   bool isFolderLoaded = false;
@@ -46,6 +47,7 @@ class _HomePageState extends State<HomePage> {
 
   Future<void> _getUserInfo() async {
     await ApiService().getUserInfo().then((value) => {
+          userId = value?.id,
           usernameController.text = '${value?.username}',
         });
     Future.delayed(const Duration(seconds: 1)).then(
@@ -63,8 +65,10 @@ class _HomePageState extends State<HomePage> {
       (value) => list?.forEach(
         (element) {
           if (element.attributes?.documentType?.data == null) {
-            documents.add(FileModel(
-                element.id!, '${element.attributes?.documentName}', 'file'));
+            if (element.attributes?.usersPermissionsUser?.data?.id == userId) {
+              documents.add(FileModel(
+                  element.id!, '${element.attributes?.documentName}', 'file'));
+            }
           }
           setState(() {
             isDocumentsLoaded = true;
@@ -161,8 +165,10 @@ class _HomePageState extends State<HomePage> {
     Future.delayed(const Duration(seconds: 1)).then(
       (value) => list?.forEach(
         (element) {
-          documents.add(
-              FileModel(element.id!, '${element.attributes?.type}', 'folder'));
+          if (element.attributes?.usersPermissionsUser?.data?.id == userId) {
+            documents.add(
+                FileModel(element.id!, '${element.attributes?.type}', 'folder'));
+          }
           setState(() {
             isFolderLoaded = true;
           });

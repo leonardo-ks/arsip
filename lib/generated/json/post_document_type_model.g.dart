@@ -1,5 +1,5 @@
-import 'package:arsip/data/model/post_document_type_model.dart';
 import 'package:arsip/generated/json/base/json_convert_content.dart';
+import 'package:arsip/data/model/post_document_type_model.dart';
 
 PostDocumentTypeModel $PostDocumentTypeModelFromJson(Map<String, dynamic> json) {
 	final PostDocumentTypeModel postDocumentTypeModel = PostDocumentTypeModel();

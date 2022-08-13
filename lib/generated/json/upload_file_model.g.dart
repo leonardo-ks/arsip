@@ -1,80 +1,80 @@
-import 'package:arsip/data/model/upload_file_model.dart';
 import 'package:arsip/generated/json/base/json_convert_content.dart';
+import 'package:arsip/data/model/upload_file_model.dart';
 
-UploadFileModel $UploadFileEntityFromJson(Map<String, dynamic> json) {
-	final UploadFileModel uploadFileEntity = UploadFileModel();
+UploadFileModel $UploadFileModelFromJson(Map<String, dynamic> json) {
+	final UploadFileModel uploadFileModel = UploadFileModel();
 	final int? id = jsonConvert.convert<int>(json['id']);
 	if (id != null) {
-		uploadFileEntity.id = id;
+		uploadFileModel.id = id;
 	}
 	final String? name = jsonConvert.convert<String>(json['name']);
 	if (name != null) {
-		uploadFileEntity.name = name;
+		uploadFileModel.name = name;
 	}
 	final dynamic? alternativeText = jsonConvert.convert<dynamic>(json['alternativeText']);
 	if (alternativeText != null) {
-		uploadFileEntity.alternativeText = alternativeText;
+		uploadFileModel.alternativeText = alternativeText;
 	}
 	final dynamic? caption = jsonConvert.convert<dynamic>(json['caption']);
 	if (caption != null) {
-		uploadFileEntity.caption = caption;
+		uploadFileModel.caption = caption;
 	}
 	final double? width = jsonConvert.convert<double>(json['width']);
 	if (width != null) {
-		uploadFileEntity.width = width;
+		uploadFileModel.width = width;
 	}
 	final double? height = jsonConvert.convert<double>(json['height']);
 	if (height != null) {
-		uploadFileEntity.height = height;
+		uploadFileModel.height = height;
 	}
 	final UploadFileFormatsModel? formats = jsonConvert.convert<UploadFileFormatsModel>(json['formats']);
 	if (formats != null) {
-		uploadFileEntity.formats = formats;
+		uploadFileModel.formats = formats;
 	}
 	final String? hash = jsonConvert.convert<String>(json['hash']);
 	if (hash != null) {
-		uploadFileEntity.hash = hash;
+		uploadFileModel.hash = hash;
 	}
 	final String? ext = jsonConvert.convert<String>(json['ext']);
 	if (ext != null) {
-		uploadFileEntity.ext = ext;
+		uploadFileModel.ext = ext;
 	}
 	final String? mime = jsonConvert.convert<String>(json['mime']);
 	if (mime != null) {
-		uploadFileEntity.mime = mime;
+		uploadFileModel.mime = mime;
 	}
 	final double? size = jsonConvert.convert<double>(json['size']);
 	if (size != null) {
-		uploadFileEntity.size = size;
+		uploadFileModel.size = size;
 	}
 	final String? url = jsonConvert.convert<String>(json['url']);
 	if (url != null) {
-		uploadFileEntity.url = url;
+		uploadFileModel.url = url;
 	}
 	final dynamic? previewUrl = jsonConvert.convert<dynamic>(json['previewUrl']);
 	if (previewUrl != null) {
-		uploadFileEntity.previewUrl = previewUrl;
+		uploadFileModel.previewUrl = previewUrl;
 	}
 	final String? provider = jsonConvert.convert<String>(json['provider']);
 	if (provider != null) {
-		uploadFileEntity.provider = provider;
+		uploadFileModel.provider = provider;
 	}
 	final dynamic? providerMetadata = jsonConvert.convert<dynamic>(json['provider_metadata']);
 	if (providerMetadata != null) {
-		uploadFileEntity.providerMetadata = providerMetadata;
+		uploadFileModel.providerMetadata = providerMetadata;
 	}
 	final String? createdAt = jsonConvert.convert<String>(json['createdAt']);
 	if (createdAt != null) {
-		uploadFileEntity.createdAt = createdAt;
+		uploadFileModel.createdAt = createdAt;
 	}
 	final String? updatedAt = jsonConvert.convert<String>(json['updatedAt']);
 	if (updatedAt != null) {
-		uploadFileEntity.updatedAt = updatedAt;
+		uploadFileModel.updatedAt = updatedAt;
 	}
-	return uploadFileEntity;
+	return uploadFileModel;
 }
 
-Map<String, dynamic> $UploadFileEntityToJson(UploadFileModel entity) {
+Map<String, dynamic> $UploadFileModelToJson(UploadFileModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['id'] = entity.id;
 	data['name'] = entity.name;
@@ -96,68 +96,68 @@ Map<String, dynamic> $UploadFileEntityToJson(UploadFileModel entity) {
 	return data;
 }
 
-UploadFileFormatsModel $UploadFileFormatsFromJson(Map<String, dynamic> json) {
-	final UploadFileFormatsModel uploadFileFormats = UploadFileFormatsModel();
+UploadFileFormatsModel $UploadFileFormatsModelFromJson(Map<String, dynamic> json) {
+	final UploadFileFormatsModel uploadFileFormatsModel = UploadFileFormatsModel();
 	final UploadFileFormatsSmallModel? small = jsonConvert.convert<UploadFileFormatsSmallModel>(json['small']);
 	if (small != null) {
-		uploadFileFormats.small = small;
+		uploadFileFormatsModel.small = small;
 	}
 	final UploadFileFormatsThumbnailModel? thumbnail = jsonConvert.convert<UploadFileFormatsThumbnailModel>(json['thumbnail']);
 	if (thumbnail != null) {
-		uploadFileFormats.thumbnail = thumbnail;
+		uploadFileFormatsModel.thumbnail = thumbnail;
 	}
-	return uploadFileFormats;
+	return uploadFileFormatsModel;
 }
 
-Map<String, dynamic> $UploadFileFormatsToJson(UploadFileFormatsModel entity) {
+Map<String, dynamic> $UploadFileFormatsModelToJson(UploadFileFormatsModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['small'] = entity.small?.toJson();
 	data['thumbnail'] = entity.thumbnail?.toJson();
 	return data;
 }
 
-UploadFileFormatsSmallModel $UploadFileFormatsSmallFromJson(Map<String, dynamic> json) {
-	final UploadFileFormatsSmallModel uploadFileFormatsSmall = UploadFileFormatsSmallModel();
+UploadFileFormatsSmallModel $UploadFileFormatsSmallModelFromJson(Map<String, dynamic> json) {
+	final UploadFileFormatsSmallModel uploadFileFormatsSmallModel = UploadFileFormatsSmallModel();
 	final String? ext = jsonConvert.convert<String>(json['ext']);
 	if (ext != null) {
-		uploadFileFormatsSmall.ext = ext;
+		uploadFileFormatsSmallModel.ext = ext;
 	}
 	final String? url = jsonConvert.convert<String>(json['url']);
 	if (url != null) {
-		uploadFileFormatsSmall.url = url;
+		uploadFileFormatsSmallModel.url = url;
 	}
 	final String? hash = jsonConvert.convert<String>(json['hash']);
 	if (hash != null) {
-		uploadFileFormatsSmall.hash = hash;
+		uploadFileFormatsSmallModel.hash = hash;
 	}
 	final String? mime = jsonConvert.convert<String>(json['mime']);
 	if (mime != null) {
-		uploadFileFormatsSmall.mime = mime;
+		uploadFileFormatsSmallModel.mime = mime;
 	}
 	final String? name = jsonConvert.convert<String>(json['name']);
 	if (name != null) {
-		uploadFileFormatsSmall.name = name;
+		uploadFileFormatsSmallModel.name = name;
 	}
 	final dynamic? path = jsonConvert.convert<dynamic>(json['path']);
 	if (path != null) {
-		uploadFileFormatsSmall.path = path;
+		uploadFileFormatsSmallModel.path = path;
 	}
 	final double? size = jsonConvert.convert<double>(json['size']);
 	if (size != null) {
-		uploadFileFormatsSmall.size = size;
+		uploadFileFormatsSmallModel.size = size;
 	}
 	final double? width = jsonConvert.convert<double>(json['width']);
 	if (width != null) {
-		uploadFileFormatsSmall.width = width;
+		uploadFileFormatsSmallModel.width = width;
 	}
 	final double? height = jsonConvert.convert<double>(json['height']);
 	if (height != null) {
-		uploadFileFormatsSmall.height = height;
+		uploadFileFormatsSmallModel.height = height;
 	}
-	return uploadFileFormatsSmall;
+	return uploadFileFormatsSmallModel;
 }
 
-Map<String, dynamic> $UploadFileFormatsSmallToJson(UploadFileFormatsSmallModel entity) {
+Map<String, dynamic> $UploadFileFormatsSmallModelToJson(UploadFileFormatsSmallModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['ext'] = entity.ext;
 	data['url'] = entity.url;
@@ -171,48 +171,48 @@ Map<String, dynamic> $UploadFileFormatsSmallToJson(UploadFileFormatsSmallModel e
 	return data;
 }
 
-UploadFileFormatsThumbnailModel $UploadFileFormatsThumbnailFromJson(Map<String, dynamic> json) {
-	final UploadFileFormatsThumbnailModel uploadFileFormatsThumbnail = UploadFileFormatsThumbnailModel();
+UploadFileFormatsThumbnailModel $UploadFileFormatsThumbnailModelFromJson(Map<String, dynamic> json) {
+	final UploadFileFormatsThumbnailModel uploadFileFormatsThumbnailModel = UploadFileFormatsThumbnailModel();
 	final String? ext = jsonConvert.convert<String>(json['ext']);
 	if (ext != null) {
-		uploadFileFormatsThumbnail.ext = ext;
+		uploadFileFormatsThumbnailModel.ext = ext;
 	}
 	final String? url = jsonConvert.convert<String>(json['url']);
 	if (url != null) {
-		uploadFileFormatsThumbnail.url = url;
+		uploadFileFormatsThumbnailModel.url = url;
 	}
 	final String? hash = jsonConvert.convert<String>(json['hash']);
 	if (hash != null) {
-		uploadFileFormatsThumbnail.hash = hash;
+		uploadFileFormatsThumbnailModel.hash = hash;
 	}
 	final String? mime = jsonConvert.convert<String>(json['mime']);
 	if (mime != null) {
-		uploadFileFormatsThumbnail.mime = mime;
+		uploadFileFormatsThumbnailModel.mime = mime;
 	}
 	final String? name = jsonConvert.convert<String>(json['name']);
 	if (name != null) {
-		uploadFileFormatsThumbnail.name = name;
+		uploadFileFormatsThumbnailModel.name = name;
 	}
 	final dynamic? path = jsonConvert.convert<dynamic>(json['path']);
 	if (path != null) {
-		uploadFileFormatsThumbnail.path = path;
+		uploadFileFormatsThumbnailModel.path = path;
 	}
 	final double? size = jsonConvert.convert<double>(json['size']);
 	if (size != null) {
-		uploadFileFormatsThumbnail.size = size;
+		uploadFileFormatsThumbnailModel.size = size;
 	}
 	final double? width = jsonConvert.convert<double>(json['width']);
 	if (width != null) {
-		uploadFileFormatsThumbnail.width = width;
+		uploadFileFormatsThumbnailModel.width = width;
 	}
 	final double? height = jsonConvert.convert<double>(json['height']);
 	if (height != null) {
-		uploadFileFormatsThumbnail.height = height;
+		uploadFileFormatsThumbnailModel.height = height;
 	}
-	return uploadFileFormatsThumbnail;
+	return uploadFileFormatsThumbnailModel;
 }
 
-Map<String, dynamic> $UploadFileFormatsThumbnailToJson(UploadFileFormatsThumbnailModel entity) {
+Map<String, dynamic> $UploadFileFormatsThumbnailModelToJson(UploadFileFormatsThumbnailModel entity) {
 	final Map<String, dynamic> data = <String, dynamic>{};
 	data['ext'] = entity.ext;
 	data['url'] = entity.url;

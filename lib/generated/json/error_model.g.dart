@@ -1,5 +1,5 @@
-import 'package:arsip/data/model/error_model.dart';
 import 'package:arsip/generated/json/base/json_convert_content.dart';
+import 'package:arsip/data/model/error_model.dart';
 
 ErrorModel $ErrorModelFromJson(Map<String, dynamic> json) {
 	final ErrorModel errorModel = ErrorModel();

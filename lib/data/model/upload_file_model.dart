@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:arsip/generated/json/base/json_field.dart';
-import 'package:arsip/generated/json/upload_file_entity.g.dart';
+import 'package:arsip/generated/json/upload_file_model.g.dart';
 
 @JsonSerializable()
 class UploadFileModel {
@@ -27,9 +27,9 @@ class UploadFileModel {
   
   UploadFileModel();
 
-  factory UploadFileModel.fromJson(Map<String, dynamic> json) => $UploadFileEntityFromJson(json);
+  factory UploadFileModel.fromJson(Map<String, dynamic> json) => $UploadFileModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $UploadFileEntityToJson(this);
+  Map<String, dynamic> toJson() => $UploadFileModelToJson(this);
 
   @override
   String toString() {
@@ -45,9 +45,9 @@ class UploadFileFormatsModel {
   
   UploadFileFormatsModel();
 
-  factory UploadFileFormatsModel.fromJson(Map<String, dynamic> json) => $UploadFileFormatsFromJson(json);
+  factory UploadFileFormatsModel.fromJson(Map<String, dynamic> json) => $UploadFileFormatsModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $UploadFileFormatsToJson(this);
+  Map<String, dynamic> toJson() => $UploadFileFormatsModelToJson(this);
 
   @override
   String toString() {
@@ -70,9 +70,9 @@ class UploadFileFormatsSmallModel {
   
   UploadFileFormatsSmallModel();
 
-  factory UploadFileFormatsSmallModel.fromJson(Map<String, dynamic> json) => $UploadFileFormatsSmallFromJson(json);
+  factory UploadFileFormatsSmallModel.fromJson(Map<String, dynamic> json) => $UploadFileFormatsSmallModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $UploadFileFormatsSmallToJson(this);
+  Map<String, dynamic> toJson() => $UploadFileFormatsSmallModelToJson(this);
 
   @override
   String toString() {
@@ -95,9 +95,9 @@ class UploadFileFormatsThumbnailModel {
   
   UploadFileFormatsThumbnailModel();
 
-  factory UploadFileFormatsThumbnailModel.fromJson(Map<String, dynamic> json) => $UploadFileFormatsThumbnailFromJson(json);
+  factory UploadFileFormatsThumbnailModel.fromJson(Map<String, dynamic> json) => $UploadFileFormatsThumbnailModelFromJson(json);
 
-  Map<String, dynamic> toJson() => $UploadFileFormatsThumbnailToJson(this);
+  Map<String, dynamic> toJson() => $UploadFileFormatsThumbnailModelToJson(this);
 
   @override
   String toString() {

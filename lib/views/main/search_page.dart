@@ -3,6 +3,7 @@ import 'package:arsip/data/model/document_type_model.dart';
 import 'package:arsip/data/model/documents_model.dart';
 import 'package:arsip/data/model/file_model.dart';
 import 'package:arsip/data/model/post_document_type_model.dart';
+import 'package:arsip/data/shared_preferences/shared_preferences_services.dart';
 import 'package:arsip/views/main/folder_page.dart';
 import 'package:flutter/material.dart';
 
@@ -14,6 +15,7 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
+  int? userId;
   List<FileModel> documents = [];
   List<FileModel> filteredDocuments = [];
   bool isDocumentsLoaded = false;
@@ -24,6 +26,7 @@ class _SearchPageState extends State<SearchPage> {
   @override
   void initState() {
     super.initState();
+    _getUserId();
     _getDocumentType();
     _getDocuments();
   }
@@ -35,14 +38,20 @@ class _SearchPageState extends State<SearchPage> {
     filterSearchResults(searchController.text);
   }
 
+  Future<void> _getUserId() async {
+    userId = await SharedPreferencesService().getInteger('id');
+  }
+
   Future<void> _getDocuments() async {
     List<DocumentsDataModel>? list;
     await ApiService().getDocuments().then((value) => list = value);
     Future.delayed(const Duration(seconds: 1)).then(
       (value) => list?.forEach(
         (element) {
-          documents.add(FileModel(
-              element.id!, '${element.attributes?.documentName}', 'file'));
+          if (element.attributes?.usersPermissionsUser?.data?.id == userId) {
+            documents.add(FileModel(
+                element.id!, '${element.attributes?.documentName}', 'file'));
+          }
           setState(() {
             isDocumentsLoaded = true;
           });
@@ -93,8 +102,10 @@ class _SearchPageState extends State<SearchPage> {
     Future.delayed(const Duration(seconds: 1)).then(
       (value) => list?.forEach(
         (element) {
-          documents.add(
-              FileModel(element.id!, '${element.attributes?.type}', 'folder'));
+          if (element.attributes?.usersPermissionsUser?.data?.id == userId) {
+            documents.add(
+                FileModel(element.id!, '${element.attributes?.type}', 'folder'));
+          }
           setState(() {
             isFolderLoaded = true;
           });
