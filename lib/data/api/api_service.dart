@@ -186,21 +186,37 @@ class ApiService {
     await SharedPreferencesService()
         .getInteger('id')
         .then((value) => userId = value);
-    Map value = {
-      'data': {
-        'document_name': name,
-        'attachment': {
-          'id': attachmentId
-        },
-        'users_permissions_user': {
-          'id': userId
-        },
-        'document_type': {
-          'id': folderId
+    String? body;
+    if (folderId != null) {
+      Map value = {
+        'data': {
+          'document_name': name,
+          'attachment': {
+            'id': attachmentId
+          },
+          'users_permissions_user': {
+            'id': userId
+          },
+          'document_type': {
+            'id': folderId
+          }
         }
-      }
-    };
-    var body = json.encode(value);
+      };
+      body = jsonEncode(value);
+    } else {
+      Map value = {
+        'data': {
+          'document_name': name,
+          'attachment': {
+            'id': attachmentId
+          },
+          'users_permissions_user': {
+            'id': userId
+          },
+        }
+      };
+      body = jsonEncode(value);
+    }
     try {
       var url =
       Uri.parse(ApiConstants.baseUrl + ApiConstants.documentsEndpoint);
